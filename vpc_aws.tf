@@ -1,4 +1,10 @@
-  provider "aws" {
+# Terraform Configuration
+
+locals {
+  terraform_version = "1.7.1"
+}
+
+provider "aws" {
   region = "us-east-2"
 }
 
@@ -64,7 +70,6 @@ resource "aws_security_group" "my_security_group" {
   }
 }
 
-
 resource "aws_instance" "Anil_ec2_instance" {
   ami                          = "ami-09694bfab577e90b0"
   instance_type                = "t2.micro"
@@ -88,6 +93,5 @@ resource "aws_route_table_association" "Anil_subnet_association" {
     aws_security_group.my_security_group,
   ]
 }
-
 
 
